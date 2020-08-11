@@ -1,52 +1,56 @@
 <%= stylesheet_link_tag 'editForm'%>
-<div class="container">
+<%= javascript_pack_tag 'form' %>
+<div class="container-fluid">
+
 <%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
   <div class="form_title"><%=@title%></div>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="form-row">
-    <div class="form-group col-md-6">
-        <%= f.label :first_name, "First Name:"%>
-        <%= f.text_field :first_name, class: "form-control" %>
+    <div class="image">
+      <%= image_tag "https://api.adorable.io/avatars/95/#{@user.email}.png" %> 
     </div>
-    <div class="form-group col-md-6">
-        <%= f.label :last_name, "Last Name:"%>
-        <%= f.text_field :last_name, class: "form-control" %> 
+  <div class="col">
+    <div class="form-group col-md-7">
+      <%= f.label :first_name, "First Name:"%>
+      <%= f.text_field :first_name, class: "form-control" %>
     </div>
-    <div class="form-row">
-        <div class="form-group col-md-6">
-        <%= f.label :city, "City" %>
-        <%= f.text_field :city, class: "form-control" %>
-    </div>
-    <div class="form-group col-md-6">
-        <%= f.label :province, "State" %>
-        <%= f.text_field :province, class: "form-control"%>
-    </div>
-        <div class="form-group col-md-6">
-        <%= f.label :country, "Country" %>
-        <%= f.text_field :country, class: "form-control"%>
-    </div>
-    <div class="form-group col-md-6">
-    <%= f.label :username, "Username:", class: "form_label" %>
-    <%= f.text_field :username, class: "form-control" %>
-  </div>
 
-  <div class="form-group col-md-6">
-    <%= f.label :email, "Email:", class: "form_label" %>
-    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
-  </div>
+    <div class="form-group col-md-7">
+      <%= f.label :last_name, "Last Name:"%>
+      <%= f.text_field :last_name, class: "form-control" %> 
+    </div>
+    
+    <div class="form-group col-md-7">
+      <%= f.label :username, "Username:", class: "form_label" %>
+      <%= f.text_field :username, class: "form-control" %>
+    </div>
 
-  <div class="form-group col-md-6">
-    <%= f.label :password, "New Password:", class: "form_label" %>
-    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
-  </div>
+    <div class="form-group col-md-7">
+      <%= f.label :email, "Email:", class: "form_label" %>
+      <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+    </div>
 
-  <div class="form-group col-md-6">
-    <%= f.label :password_confirmation, "Confirm New Password:", class: "form_label" %>
-    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
-  </div>
-  </div>
-  <button type="submit" class="btn btn-primary">Update</button>
+    <div class="form-group col-md-7">
+      <%= f.label :country, "In which country do you live?", class: "form_label" %>
+      <%= f.select :country, options_for_select(@countries, selected=@country), {include_blank: "Choose your country"},class: "form-control"%>
+    </div>
+    
+    <div class="form-group col-md-7">
+      <%= f.label :province, "In which province/state do you live?", class: "form_label" %>
+      <%= f.select :province, options_for_select(@territories, selected=@territory), {include_blank: "Choose your province/state:"},class: "form-control" %>
+    </div>
 
-<% end %>
+    <div class="form-group col-md-7">
+      <%= f.label :city, "In which city do you live?", class: "form_label" %>
+      <%= f.select :city, options_for_select(@cities), {include_blank: "Choose your city:"},class: "form-control" %>
+    </div>
+     
+    <div class="btn">
+      <button type="submit" >Update</button>
+    </div>
+    </div>
+    </div>  
+
+  <% end %>
+</div>  
 </div>

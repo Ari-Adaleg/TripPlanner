@@ -1,0 +1,49 @@
+
+
+$logo: #3DBB3D;
+$gray: #777777;
+$black: #070707;
+$green: #7ED386;
+$aqua: #3FB6A8;
+$white: #FFFFFF;
+
+body{
+  background-color: lightblue;
+}
+
+.form_title{
+  font-variant: all-petite-caps;
+  margin-left: 4%;
+}
+
+.container-fluid{
+    background: $white;
+    width: 60%;
+    height: 720px;
+    margin: 0 auto;
+    position: relative;
+    margin-top: 5%;
+    margin-bottom: 5%;
+    box-shadow: 2px 5px 20px rgba($gray, .5);
+}
+
+img{
+  margin: 8%;
+  border-radius: 30%;
+}
+
+.col{
+  float: right;
+  width: 70%;
+  margin-top: -21%;
+}
+
+  .btn {
+    float: bottom;
+    text-transform: uppercase;
+    font-size: 15px;
+    border: none;
+    color: $aqua;
+  }
+
+
