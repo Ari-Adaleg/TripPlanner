@@ -2,7 +2,7 @@
 
 <%= render :partial => 'trip/form' %>
 
-<%= form_for @destination, url: destination_index_path, id: "destination_choice" do |f| %>
+<%= form_for @destination, url: users_trip_destinations_path(current_user.trips.first), id: "destination_choice" do |f| %>
 
       <%= f.label :leaving_from, "Leaving from: "%>
       <%= f.text_field :leaving_from %>
