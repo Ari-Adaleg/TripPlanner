@@ -1,7 +1,7 @@
 <%= javascript_pack_tag 'destination' %>
 
 <h1>DESTINATION</h1>
-<%= form_tag destination_index_path do %>
+<%= form_tag users_trip_destinations_path(current_user.trips.first) do %>
 
       <%= label_tag :name, "Destination: "%>
       <%= text_field_tag :name, params[:name] %>

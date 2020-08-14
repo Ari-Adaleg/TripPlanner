@@ -1,4 +1,4 @@
-class DestinationController < ApplicationController
+class DestinationsController < ApplicationController
     def get_coordinates
         @destination = params[:name]
         @coordinates = Geocoder.search(@destination)
