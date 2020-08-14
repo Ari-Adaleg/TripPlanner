@@ -7,7 +7,7 @@ $green: #7ED386;
 $aqua: #3FB6A8;
 $white: #FFFFFF;
 
-body{
+#editBody{
   background-color: lightblue;
 }
 
@@ -16,20 +16,19 @@ body{
   margin-left: 4%;
 }
 
-.container-fluid{
+.container{
     background: $white;
     width: 60%;
     height: 720px;
-    margin: 0 auto;
-    position: relative;
     margin-top: 5%;
     margin-bottom: 5%;
     box-shadow: 2px 5px 20px rgba($gray, .5);
 }
 
-img{
+#avatar{
   margin: 8%;
   border-radius: 30%;
+  color: green($color: #000000);
 }
 
 .col{
