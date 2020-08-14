@@ -15,7 +15,7 @@
     <%= link_to "Register", new_user_registration_path, id: "register" %>
     <%= link_to "Log In", new_user_session_path %>
   <%end%>
-  <%=link_to 'Destination', destination_index_path%>
+  <%=link_to 'Destination', users_trip_destinations_path(1) %>
   <body>
     <%= yield %>
   </body>
