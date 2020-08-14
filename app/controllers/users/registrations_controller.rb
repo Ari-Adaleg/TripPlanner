@@ -33,8 +33,11 @@ class Users::RegistrationsController < Devise::RegistrationsController
   end
 
 def edit
-    @title = "Edit your account"
+    @title = "Update Your Info"
     @user = User.find(current_user.id)
+    @countries = CS.get.map{|k,v| [v,k]}
+    @territories = []
+    @cities = []
 end
 
 def update

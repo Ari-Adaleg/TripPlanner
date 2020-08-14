@@ -1,0 +1,12 @@
+<%= javascript_pack_tag 'destination' %>
+
+<h1>DESTINATION</h1>
+<%= form_tag destination_index_path do %>
+
+      <%= label_tag :name, "Destination: "%>
+      <%= text_field_tag :name, params[:name] %>
+
+      <%= submit_tag "Submit", data: {disable_with: false}%>
+<% end %>
+
+<div style="height: 400px;" id="map"></div>

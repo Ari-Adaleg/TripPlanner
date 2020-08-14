@@ -4,10 +4,10 @@
     <title>TripPlanner</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script src='https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>'></script>
   </head>
   <body>
     <nav class="navbar navbar-lexpand-sm navbar-dark-bg-dark">
@@ -54,7 +54,12 @@
     <%= link_to "Log In", new_user_session_path %>
     </li>
   <%end%>
+
 </nav>
+
+  <%=link_to 'Destination', users_trip_destinations_path%>
+  <body>
+
     <%= yield %>
   </body>
 </html>
