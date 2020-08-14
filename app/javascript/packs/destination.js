@@ -24,7 +24,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let name = location.value;
         event.preventDefault();
         console.log(location.value);
-        fetch(`/destination/get_coordinates/${name}`)
+        fetch(`/users/get_coordinates/${name}`)
         .then(e=>e.json())
         .then(x => {
             console.log(x[0].data.boundingbox[0]);
