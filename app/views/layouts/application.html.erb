@@ -5,18 +5,61 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= stylesheet_pack_tag 'application', media: 'all' %>
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
     <script src='https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>'></script>
-  </head>
-  <%= link_to 'Home Page', root_path %>
-  <%if current_user%>        
-  <%=link_to 'Destination', users_trip_destinations_path(current_user.trips.first)%>
-    <%= link_to 'Log Out', destroy_user_session_path, method: "delete" %>          
-  <%else%>
-    <%= link_to "Register", new_user_registration_path, id: "register" %>
-    <%= link_to "Log In", new_user_session_path %>
-  <%end%>
+  </head>        
   <body>
+    <nav class="navbar navbar-lexpand-sm navbar-dark-bg-dark">
+    <li class="nav=item">
+    <%= link_to image_tag("trip_planner.png", :size => "260x180" ,  alt: "logo"),
+        root_path %>
+        </li>
+ <li class="nav-item ">
+         <a href="#" class="nav-link  navoption">About Us<a>
+    </li>
+     <li class="nav-item">
+         <a href="#" class="nav-link navoption">FAQs<a>
+    </li>
+     <li class="nav-item">
+         <a href="#" class="nav-link nav navoption">Contact Us<a>
+    </li>
+      <%if current_user%>  
+       <li class="nav-item">
+       <%=link_to 'Add Trip', users_trip_destinations_path(current_user.trips.first)%>
+    </li>
+    
+    
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle navoption" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Welcome <%= current_user.username%>
+        </a>
+
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+    <%= link_to "My Profile", edit_user_registration_path %>
+          <div class="dropdown-divider"></div>
+          <%= link_to "Change Password", edit_user_password_path %>
+         <div class="dropdown-divider"></div>
+          <%= link_to "Meal Preference", edit_user_password_path %>
+        </div>
+      </li>
+      <li class="nav-item navoption">      
+    <%= link_to 'Log Out', destroy_user_session_path, method: "delete" %> 
+    </li>         
+  <%else%>
+  <li class="nav-item">
+    <%= link_to "Register", new_user_registration_path, id: "register" %>
+    </li>
+    <li class="nav-item">
+    <%= link_to "Log In", new_user_session_path %>
+    </li>
+  <%end%>
+
+</nav>
+
+
     <%= yield %>
   </body>
 </html>
+
+
