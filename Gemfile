@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+#gem to hide api key
+gem 'figaro'
+#gem to get coordinates of different locations
+gem 'geocoder'
 #get a database of countries, states, and cities
 gem 'city-state'
 #Use "devise" gem for authorization 
