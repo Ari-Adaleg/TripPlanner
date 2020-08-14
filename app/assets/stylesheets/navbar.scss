@@ -1,0 +1,17 @@
+ul {
+   list-style-type: navbar;
+   margin: 0;
+   padding: 0;
+}
+.active {
+   background-color: #green;
+   color: blue;
+}
+li {
+//    border-bottom: 1px solid #555;
+   display: inline;
+}
+.navoption{
+    font-size: 1.25em;
+    color: navy;
+}
