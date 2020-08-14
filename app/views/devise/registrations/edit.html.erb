@@ -4,16 +4,16 @@
 <%=hidden_field_tag 'city', @user.city %>
 
 <div id="editBody">
-<div class="container">
+<div class="container editProfile">
 
 <%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
-  <div class="form_title"><%=@title%></div>
+  <div class="form_title editP"><%=@title%></div>
   <%= render "devise/shared/error_messages", resource: resource %>
 
     <div>
       <%= image_tag "https://api.adorable.io/avatars/95/#{@user.email}.png", id: "avatar" %> 
     </div>
-  <div class="col">
+  <div class="col editProfileCol">
     <div class="form-group col-md-7">
       <%= f.label :first_name, "First Name:"%>
       <%= f.text_field :first_name, class: "form-control" %>
@@ -49,8 +49,8 @@
       <%= f.select :city, options_for_select(@cities, selected=@city), {include_blank: @user.city},class: "form-control" %>
     </div>
      
-    <div class="btn">
-      <button type="submit" >Update</button>
+    <div>
+    <%= f.submit class: "btn btn-primary profileUpdateButton" %>
     </div>
     </div>
     </div>  
