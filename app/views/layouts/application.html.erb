@@ -11,7 +11,7 @@
   </head>        
   <body>
     <nav class="navbar navbar-lexpand-sm navbar-dark-bg-dark">
-    <li class="nav=item">
+    <li class="nav-item">
     <%= link_to image_tag("trip_planner.png", :width => "182" ,  alt: "logo"),
         root_path %>
         </li>
@@ -22,12 +22,12 @@
          <a href="#" class="nav-link navoption">FAQs<a>
     </li>
      <li class="nav-item">
-         <a href="#" class="nav-link nav navoption">Contact Us<a>
+         <a href="#" class="nav-link navoption">Contact Us<a>
     </li>
       <%if current_user%>  
        <li class="nav-item">
-       <%=link_to 'Add Trip', new_users_trip_path%>
-    </li>
+        <%=link_to 'Add Trip', new_users_trip_path, class: "nav-link navoption"%>
+      </li>
     
     
       <li class="nav-item dropdown">
@@ -41,17 +41,19 @@
           <%= link_to "Change Password", edit_user_password_path %>
          <div class="dropdown-divider"></div>
           <%= link_to "Meal Preference", edit_user_password_path %>
+         <div class="dropdown-divider"></div>
+          <%= link_to "My Trips", users_trips_path %>
         </div>
       </li>
-      <li class="nav-item navoption">      
-    <%= link_to 'Log Out', destroy_user_session_path, method: "delete" %> 
+      <li class="nav-item">      
+    <%= link_to 'Log Out', destroy_user_session_path, method: "delete", class: "nav-link navoption" %> 
     </li>         
   <%else%>
   <li class="nav-item">
-    <%= link_to "Register", new_user_registration_path, id: "register" %>
+    <%= link_to "Register", new_user_registration_path, class: "nav-link navoption",id: "register" %>
     </li>
     <li class="nav-item">
-    <%= link_to "Log In", new_user_session_path %>
+    <%= link_to "Log In", new_user_session_path, class: "nav-link navoption" %>
     </li>
   <%end%>
 

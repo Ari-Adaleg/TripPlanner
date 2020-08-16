@@ -37,7 +37,7 @@ class WelcomeController < ApplicationController
     respond_to do |format|
         format.json {render json: @coordinates}
     end
-end
+  end
 
 
   def new

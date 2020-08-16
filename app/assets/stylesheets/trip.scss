@@ -1,3 +1,53 @@
 // Place all the styles related to the Trip controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.trips_list {
+    text-align: center;
+    width: 50%;
+    margin: 0 auto;
+}
+
+.trip_title {
+    text-transform: capitalize;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.destinations_list {
+    text-align: left;
+    margin-left: 20%;
+}
+
+.container {
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+}
+
+.trip_form {
+    margin-left: auto;
+    margin-right: auto;
+    width: 60%;
+    float: left;
+}
+
+.field1 {
+    margin: 1%;
+}
+
+.form_label1 {
+    font-weight: 100;
+    margin-bottom: 0;
+}
+
+.form_input1 {
+    // display: block;
+    width: 50%;
+    border: 1px solid black;
+    box-shadow: 0 2px 2px #888888;
+}
+
+#map {
+    width: 80%;
+    height: 600px;
+}
