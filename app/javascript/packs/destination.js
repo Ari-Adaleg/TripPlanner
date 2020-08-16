@@ -31,45 +31,54 @@ document.addEventListener('DOMContentLoaded', () => {
       center: myLatLng
     });
     
-    function addMarker(lat, lng){
-      let myLatLng;
+    function addMarker(lat, lng, id){
+      let myLatLng, marker;
       isNaN(lat) ? myLatLng = lat : myLatLng = new google.maps.LatLng(lat, lng);
-      let marker = new google.maps.Marker({
+      if (markers[id]) {moveMarker(lat, lng, id)}
+      else{marker = new google.maps.Marker({
                   id: current_id,
                   position: myLatLng,
                   map: map,
               });
       markers[current_id] = marker;
-      current_id++;
-      console.log(current_id);        
+      // current_id++;
+      console.log(current_id);  
+      }      
     }
     
-    removeMarker = (id) => {
+    moveMarker = (lat, lng, id) => {
+      var myLatLng = new google.maps.LatLng(lat, lng);
       let marker = markers[id];
-      marker.setMap(null);
-      current_id--;
-      console.log(current_id);  
+      marker.setPosition(myLatLng);
     }
+
+
+    // removeMarker = (id) => {
+    //   let marker = markers[id];
+    //   marker.setMap(null);
+    //   current_id--;
+    //   console.log(current_id);  
+    // }
 
     addMarker(myLatLng);
 
     var arrivingTo = document.querySelector('#trip_destinations_attributes_0_arriving_to');
     var leavingFrom = document.querySelector('#trip_destinations_attributes_0_leaving_from');
-    var lat, lng;
-    arrivingTo.onchange = (event) => {
+    var lat, lng, id;
+    arrivingTo.onchange = () => {
         let name = arrivingTo.value;
         event.preventDefault();
         console.log(name);
         fetch(`/users/get_coordinates/${name}`)
         .then(e=>e.json())
         .then(x => {
-            console.log(x)
+            // console.log(x)
             console.log(x[0].data.boundingbox[0]);
             console.log(x[0].data.boundingbox[2]);
             lat = parseFloat(x[0].data.boundingbox[0]);
             lng = parseFloat(x[0].data.boundingbox[2]);
-            // if(arrivingTo.value){removeMarker(0);}
-            leavingFrom.value ? addMarker(lat, lng) : newMap(lat, lng);
+            id = 1;
+            leavingFrom.value ? addMarker(lat, lng, id) : newMap(lat, lng);
         })
     }
 
@@ -85,8 +94,8 @@ document.addEventListener('DOMContentLoaded', () => {
           console.log(x[0].data.boundingbox[2]);
           lat = parseFloat(x[0].data.boundingbox[0]);
           lng = parseFloat(x[0].data.boundingbox[2]);
-          // if(leavingFrom.value){removeMarker(1);}
-          arrivingTo.value ? addMarker(lat, lng) : newMap(lat, lng);
+          id = 0;
+          arrivingTo.value ? addMarker(lat, lng, id) : newMap(lat, lng);
       })
   }
 });
