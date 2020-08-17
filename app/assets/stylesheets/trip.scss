@@ -1,17 +1,30 @@
 // Place all the styles related to the Trip controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+.img-fluid {
+    object-fit: cover;
+    object-position: 10%;
+    width: 100%;
+    height: 373.41px;
+}
+
 .container {
     display: flex;
     flex-direction: column;
+    width: 70%;
     margin: 0 auto;
     align-items: center;
+}
+
+hr {
+    margin-bottom: 4%;
 }
 
 .title {
     text-transform: uppercase;
     font-weight: 900;
     text-align: center;
+    margin-top: 5%;
 }
 
 .trips_list {
@@ -27,7 +40,7 @@
 }
 
 .trip_form {
-    width: 40%;
+    width: 75%;
 }
 
 .destination_fields {
@@ -35,7 +48,7 @@
 }
 
 .form_label1 {
-    font-weight: 100;
+    font-weight: 300;
 }
 
 .field1 {
@@ -47,7 +60,9 @@
 
 label {
     margin-right: 15px;
-    margin-bottom: 5%;
+    margin-bottom: 2%;
+    font-size: x-large;
+    font-weight: bold;
 }
 
 .form_input1 {
@@ -55,15 +70,37 @@ label {
     width: 50%;
     border: 1px solid black;
     box-shadow: 0 2px 2px #888888;
+    border-radius: 5px;
 }
 
 input {
     margin-left: 15px;
+    margin-bottom: 2%;
+    font-weight: bold;
+    padding-left: 1%;
+    padding-right: 1%;
+}
+
+#new-space {
     margin-bottom: 5%;
 }
 
+.btn.btn-outline-secondary.btn-lg {
+    height: 48px;
+    width: 350px;
+    margin-right: 65px;
+}
+
+.btn.btn-primary.btn-lg {
+    width: 350px;
+    margin-left: 65px;
+}
+
 .clickable {
-    margin: 5%
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 #map {
