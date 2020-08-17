@@ -6,8 +6,8 @@
 <div id="editBody">
 <div class="container editProfile">
 
-<%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
-  <div class="form_title editP"><%=@title%></div>
+  <%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
+    <div class="form_title editP"><%=@title%></div>
   <%= render "devise/shared/error_messages", resource: resource %>
 
     <div>

@@ -7,12 +7,15 @@ Rails.application.routes.draw do
   resource :users do
     resources :trips do
       resources :destinations do
-        collection do
+        resources :meal_preferences do 
+          collection do
           get 'get_coordinates/:name', to: 'destinations#get_coordinates'
-        end
+          end
+        end 
       end
     end
   end
   get '/users/get_territories/:country', to: 'welcome#get_territories' 
   get '/users/get_cities/:country/:territory', to: 'welcome#get_cities' 
 end
+ 
