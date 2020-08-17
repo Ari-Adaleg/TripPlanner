@@ -39,10 +39,12 @@
       </div>
       </div>
       <div class="clickable">
-            <%=link_to "Add another stop", "", :onclick => "addFields(); return false", class: "btn btn-outline-secondary btn-lg" %><br>
+      <div class="new-stop">
+            <%=link_to "Add another stop", "", :onclick => "addFields(); return false", class: "btn btn-outline-secondary btn-lg new-stop" %><br>
+      </div>
       <% end %>
-
-      <%= f.submit "Submit", class: "btn btn-primary btn-lg" %>
+      <div class="next">
+      <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
       </div>
 <% end %>
 
