@@ -10,7 +10,7 @@
     <script src='https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>'></script>
   </head>        
   <body>
-    <div id="navback">
+    <div id="navback" class="sticky-top">
     <nav class="navbar navbar-lexpand-sm navbar-dark-bg-dark">
     <li class="nav-item">
     <%= link_to image_tag("trip_planner.png", :width => "182" ,  alt: "logo",  id: "logo"),

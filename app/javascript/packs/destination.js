@@ -110,10 +110,13 @@ addFields = () => {
   let div2 = document.createElement('div');
   let div3 = document.createElement('div');
   let div4 = document.createElement('div');
+
   div1.className = "field1";
   div2.className = "field1";
   div3.className = "field1";
   div4.className = "field1";
+  div4.setAttribute("id", "new-space");
+  
   let label1 = document.createElement('label');
   let label2 = document.createElement('label');
   let label3 = document.createElement('label');

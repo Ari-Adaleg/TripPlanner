@@ -16,6 +16,11 @@
     align-items: center;
 }
 
+.trips_list {
+    display: flex;
+    flex-direction: row;
+}
+
 hr {
     margin-bottom: 4%;
 }
@@ -28,7 +33,7 @@ hr {
 }
 
 .trips_list {
-    text-align: center;
+    // text-align: center;
     width: 50%;
     margin: 0 auto;
 }

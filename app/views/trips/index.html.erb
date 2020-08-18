@@ -1,17 +1,24 @@
-<%= stylesheet_link_tag 'welcome'%>
-<h1>My Trips</h1>
-<div class="trips_list">
-    <p><%@trips.each do |trip|%></p>
-        <p class="trip_title"><%=trip.name%></p>
-            <p><%@destinations.each do |destination|%></p>
-                <%if destination.trip_id == trip.id%>
-                <div class="destinations_list">
-                    <p>From <%=destination.leaving_from%>
-                    to <%=destination.arriving_to%></p>
-                    <p>Start Date: <%=destination.start_date%>
-                    End Date: <%=destination.end_date%></p>
-                </div>
+<%= stylesheet_link_tag 'trip'%>
+
+<%= image_tag "travel-2650303.jpg", class: "img-fluid" %>
+
+<div class="index">
+    <h1>My Trips</h1>
+    <div class="trips_list">
+                <p><%@trips.each do |trip|%></p>
+        <div class="card">
+            <div class="card-body">
+                <p class="card-title"><%=trip.name%></p>
+                    <%@destinations.each do |destination|%>
+                        <%if destination.trip_id == trip.id%>
+                            <div class="card-text">
+                                <p>From <%=destination.leaving_from%> to <%=destination.arriving_to%></p>
+                                <p>Start Date: <%=destination.start_date%> End Date: <%=destination.end_date%></p>
+                            </div>
+                        <%end%>
+                    <%end%>
+            </div>
+        </div>
                 <%end%>
-            <%end%>
-    <%end%>
+    </div>
 </div>
