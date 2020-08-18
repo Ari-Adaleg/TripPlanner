@@ -1,6 +1,9 @@
 <%= javascript_pack_tag 'destination' %>
 <%= stylesheet_link_tag 'trip'%>
-
+<%=current_user.city%>
+<%=current_user.province%>
+<%=current_user.country%>
+<%=@user_home%>
 <%=hidden_field_tag 'latitude', @user_home[0] %>
 <%=hidden_field_tag 'longitude', @user_home[1] %>
 <div class="container">
@@ -14,22 +17,22 @@
       <%= f.fields_for :destinations do |d| %>
       <div id="destination_group">
             <div id="destination_fields">
-            <div class="field1">
-                  <%= d.label :leaving_from, "Leaving from: ", class: "form_label1"%>
-                  <%= d.text_field :leaving_from, value: current_user.city, class: "form_input1" %>
-            </div>
-            <div class="field1">
-                  <%= d.label :arriving_to, "Destination: ", class: "form_label1"%>
-                  <%= d.text_field :arriving_to, class: "form_input1" %>
-            </div>
-            <div class="field1">
-                  <%= d.label :start_date, "Start date: ", class: "form_label1"%>
-                  <%= d.date_field :start_date, class: "form_input1" %>
-            </div>
-            <div class="field1">
-                  <%= d.label :end_date, "End date: ", class: "form_label1"%>
-                  <%= d.date_field :end_date, class: "form_input1" %>
-            </div>
+                  <div class="field1">
+                        <%= d.label :leaving_from, "Leaving from: ", class: "form_label1"%>
+                        <%= d.text_field :leaving_from, value: current_user.city, class: "form_input1" %>
+                  </div>
+                  <div class="field1">
+                        <%= d.label :arriving_to, "Destination: ", class: "form_label1"%>
+                        <%= d.text_field :arriving_to, class: "form_input1" %>
+                  </div>
+                  <div class="field1">
+                        <%= d.label :start_date, "Start date: ", class: "form_label1"%>
+                        <%= d.date_field :start_date, class: "form_input1" %>
+                  </div>
+                  <div class="field1">
+                        <%= d.label :end_date, "End date: ", class: "form_label1"%>
+                        <%= d.date_field :end_date, class: "form_input1" %>
+                  </div>
             </div>
       </div>
       </div>

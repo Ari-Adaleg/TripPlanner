@@ -11,7 +11,7 @@ class TripsController < ApplicationController
     def new
         @trip = current_user.trips.new
         @trip.destinations.build
-        @user_home = Geocoder.coordinates(current_user.city)
+        @user_home = Geocoder.coordinates("#{current_user.city}, #{current_user.province}")
     end
 
     def create
