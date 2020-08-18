@@ -10,19 +10,20 @@
     <script src='https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>'></script>
   </head>        
   <body>
+    <div id="navback">
     <nav class="navbar navbar-lexpand-sm navbar-dark-bg-dark">
     <li class="nav-item">
-    <%= link_to image_tag("trip_planner.png", :width => "182" ,  alt: "logo"),
-        root_path %>
+    <%= link_to image_tag("trip_planner.png", :width => "182" ,  alt: "logo",  id: "logo"),
+        root_url%>
         </li>
  <li class="nav-item ">
-         <a href="#" class="nav-link  navoption">About Us<a>
+         <a href="#" class="nav-link  navoption">About Us</a>
     </li>
      <li class="nav-item">
-         <a href="#" class="nav-link navoption">FAQs<a>
+         <a href="#" class="nav-link navoption">FAQs</a>
     </li>
      <li class="nav-item">
-         <a href="#" class="nav-link navoption">Contact Us<a>
+         <a href="#" class="nav-link navoption">Contact Us</a>
     </li>
       <%if current_user%>  
        <li class="nav-item">
@@ -58,6 +59,7 @@
   <%end%>
 
 </nav>
+</div>
 
 
     <%= yield %>
