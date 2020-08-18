@@ -29,7 +29,7 @@ document.addEventListener('DOMContentLoaded', () => {
       zoom: 8,
       center: myLatLng
     });
-    
+
     function addMarker(lat, lng, id){
       let myLatLng, marker;
       if(isNaN(lat)){myLatLng = lat; id=lng;}
@@ -61,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     addMarker(myLatLng, 0);
-
+    // console.log(markers[0]);
     var arrivingTo = document.querySelector('#trip_destinations_attributes_0_arriving_to');
     var leavingFrom = document.querySelector('#trip_destinations_attributes_0_leaving_from');
     var lat, lng, id;

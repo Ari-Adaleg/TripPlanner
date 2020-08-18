@@ -1,9 +1,6 @@
 <%= javascript_pack_tag 'destination' %>
 <%= stylesheet_link_tag 'trip'%>
-<%=current_user.city%>
-<%=current_user.province%>
-<%=current_user.country%>
-<%=@user_home%>
+
 <%=hidden_field_tag 'latitude', @user_home[0] %>
 <%=hidden_field_tag 'longitude', @user_home[1] %>
 
