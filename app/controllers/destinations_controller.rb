@@ -8,8 +8,6 @@ class DestinationsController < ApplicationController
     end
 
     def index
-        @trip = Trip.new
-        @destination = Destination.new
     end
 
     def show
@@ -19,17 +17,5 @@ class DestinationsController < ApplicationController
     end
 
     def create
-        @destination = Destination.new(destination_params)
-
-        if @destination.save
-            redirect_to root_url
-        else
-            render :index
-        end
     end
 end
-
-private
-    def destination_params
-        params.require(:destination).permit(:leaving_from, :arriving_to, :start_date, :end_date)
-    end

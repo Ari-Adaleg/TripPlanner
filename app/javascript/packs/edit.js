@@ -6,28 +6,24 @@ document.addEventListener('DOMContentLoaded', () => {
     territories.classList.add("form-control");
     var cities = document.querySelector('#user_city');
     cities.classList.add("form-control");
-    // The next 3 lines are used to get @user.province and @user.city from 
-    // the edit.html.erb page. I put them in hidden tags at the top of the html page.
-    var country = document.querySelector('#country'); 
+    // The next 2 lines are used to get @user.province and @user.city from 
+    // the edit.html.erb page. I put them in hidden tags at the top of the html page. 
     var territory = document.querySelector('#territory');
     var city = document.querySelector('#city');
     // The next 2 variables hold the values needed to fetch the get_territories 
     // and get_cities methods from the welcome controller 
-    console.log(country.value);
-    console.log(territory.value);
+    // var country;
     var territory_key;
     // Populate the @territories array in the form, and pre-select the user's territory
-    fetch(`/users/get_territories/${country.value}`)
+    fetch(`/users/get_territories/${countries.value}`)
         .then(e=>e.json())
         .then(x => {
-            console.log(x);
             Object.keys(x).forEach (t => {
                 var option = new Option(x[t], t);
                 if(option.text==territory.value){
                     option.selected = 'selected';
                     territory_key = option.value;
-                    // console.log(territory_key);
-                    get_cities(country.value, territory_key);
+                    get_cities(countries.value, territory_key);
                 }
                 territories.options.add(option); 
             });
