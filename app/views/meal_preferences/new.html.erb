@@ -1,0 +1,57 @@
+<%= form_for([current_user, @meal_preference], url: users_meal_preferences_path, :html => {class: "form-group-row"}) do |f| %>
+
+<div class="container py-5 mealPrefBG">
+    <div class="row mealPrefMargin">
+        <div class="col-md-10 mx-auto">
+
+            
+            	<h2>Meal Preferences</h2>
+                	<div class="form-group row">
+						<div class="round">
+						<%= f.check_box :gluten_free%>
+						<%= f.label "Gluten-free"%>
+                    	</div>
+               		</div>
+                	<div class="form-group row">
+                    	<div class="round">
+						<%= f.check_box :vegetarian%>
+						<%= f.label "Vegetarian"%>
+                      	</div>
+                    </div>
+                    <div class="form-group row">
+                    	<div class="round">
+						<%= f.check_box :vegan%>
+						<%= f.label "Vegan"%>
+                      	</div>
+                    </div>
+                    <div class="form-group row">
+                    	<div class="round">
+						<%= f.check_box :dairy_free%>
+						<%= f.label "Dairy-free"%>
+                      	</div>
+                    </div>
+                    <div class="form-group row">
+                    	<div class="round">
+						<%= f.check_box :low_sodium%>
+						<%= f.label "Low-sodium"%>
+                      	</div>
+                    </div>
+                    <div class="form-group row">
+                    	<div class="round">
+						<%= f.check_box :kosher%>
+						<%= f.label "Kosher"%>
+                      	</div>
+                    </div>
+                    <div class="form-group row">
+                    	<div class="round">
+						<%= f.check_box :halal%>
+						<%= f.label "Halal"%>
+                      	</div>
+                    </div>
+					<%= f.submit class:"btn btn-primary px-4 float-right"%>
+        </div>
+    </div>
+</div>
+<% end %>
+
+
