@@ -94,6 +94,7 @@ document.addEventListener('DOMContentLoaded', () => {
           lng = parseFloat(x[0].data.boundingbox[2]);
           id = 0;
           arrivingTo.value ? addMarker(lat, lng, id) : newMap(lat, lng, id);
+          // addMarker(lat, lng, id);
           adjustMap();
       })
   }
