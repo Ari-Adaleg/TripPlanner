@@ -29,9 +29,24 @@ hr {
     margin-bottom: 4%;
 }
 
+.card-body {
+    padding: 30px;
+}
+
 .card-title.trip {
     font-size: 27px;
     margin-bottom: 5px;
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 0 auto;
+}
+
+.row-space {
+    margin-right: 35px;
 }
 
 .title {
@@ -41,8 +56,8 @@ hr {
 }
 
 .card.padding {
-    margin: 10px;
-    width: 15%;
+    margin: 20px;
+    width: 17%;
     border-color: #110a6a;
 }
 
@@ -106,6 +121,7 @@ input {
 
 .card-subtitle.mb-2.text-muted {
     margin-bottom: 5px !important;
+    font-variant: all-petite-caps;
 }
 
 .btn.btn-primary.btn-lg.next {
@@ -140,8 +156,8 @@ input {
 #title {
     color: white;
     background: #110a6a;
-    margin-left: -20px;
-    padding-left: 20px;
+    margin-left: -30px;
+    padding-left: 30px;
     margin-right: 100px;
     font-weight: 800;
     margin-top: 15px;

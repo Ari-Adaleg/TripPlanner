@@ -15,16 +15,29 @@
                         <%if destination.trip_id == trip.id%>
                             <h6 id="title">Destination #<%= a %></h6>
                             <div class="card-text">
-                                <h6 class="to-from-1">From:</h6>
-                                <p class="to-from-2"><%=destination.leaving_from%> to <%=destination.arriving_to%></p>
-                                <h6 class="to-from-1">Start Date:</h6>
-                                <p class="to-from-2"><%=destination.start_date%></p>
-                                <h6 class="to-from-1">End Date:</h6>
-                                <p class="to-from-2"><%=destination.end_date%></p>
+                                    <div class="row-space">
+                                        <h6 class="to-from-1">From:</h6>
+                                        <p class="to-from-2"><%=destination.leaving_from%></p>
+                                    </div>
+                                    <div>
+                                        <h6 class="to-from-1">To:</h6>
+                                        <p class="to-from-2"><%=destination.arriving_to%></p>
+                                    </div>
+                                <div class="row">
+                                    <div class="row-space">
+                                        <h6 class="to-from-1">Start Date:</h6>
+                                        <p class="to-from-2"><%=destination.start_date%></p>
+                                    </div>
+                                    <div>
+                                        <h6 class="to-from-1">End Date:</h6>
+                                        <p class="to-from-2"><%=destination.end_date%></p>
+                                    </div>
+                                </div>
                                 <% a += 1 %>
                             </div>
                         <%end%>
                     <%end%>
+                            <hr>
                 <%= link_to "Edit Trip", edit_users_trip_path(trip.id), class: "btn btn-primary mt-auto"%>
             </div>
         </div>
