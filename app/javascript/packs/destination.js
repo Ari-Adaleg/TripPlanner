@@ -111,10 +111,13 @@ addFields = () => {
   let div2 = document.createElement('div');
   let div3 = document.createElement('div');
   let div4 = document.createElement('div');
+
   div1.className = "field1";
   div2.className = "field1";
   div3.className = "field1";
   div4.className = "field1";
+  div4.setAttribute("id", "new-space");
+  
   let label1 = document.createElement('label');
   let label2 = document.createElement('label');
   let label3 = document.createElement('label');
@@ -127,13 +130,11 @@ addFields = () => {
   label1.setAttribute('for', `trip_destinations_attributes_${newId+1}_leaving_from`);
   label1.innerText = "Leaving from: "
   label1.className = "form_label1";
-  // label1.style.display = "none";
   input1.setAttribute('name', `trip[destinations_attributes][${newId+1}][leaving_from]`);
   input1.setAttribute('id', `trip_destinations_attributes_${newId+1}_leaving_from`);
   input1.setAttribute('value', group_children[group_children.length-3].value);
   input1.setAttribute('type', 'text');
   input1.className = "form_input1";
-  // input1.hidden = true;
   div1.appendChild(label1);
   div1.appendChild(input1);
   label2.setAttribute('for', `trip_destinations_attributes_${newId+1}_arriving_to`);
@@ -168,37 +169,4 @@ addFields = () => {
   destination_fields.appendChild(div2);
   destination_fields.appendChild(div3);
   destination_fields.appendChild(div4);
-  // let fields = document.querySelector('#new_fields');
-  // fields.reset();
-  // Reset Labels
-  // let field_labels = fields.querySelectorAll('label');
-  // field_labels[0].setAttribute('for', `trip_destinations_attributes_${newId+1}_leaving_from`);
-  // field_labels[0].style.display = "none";
-  // field_labels[1].setAttribute('for', `trip_destinations_attributes_${newId+1}_arriving_to`);
-  // field_labels[1].innerText = `Destination #${2+parseInt(newId)}`;
-  // field_labels[2].setAttribute('for', `trip_destinations_attributes_${newId+1}_start_date`);
-  // field_labels[3].setAttribute('for', `trip_destinations_attributes_${newId+1}_end_date`);
-  // Reset Inputs
-  // let field_inputs = fields.querySelectorAll('input');
-  // field_inputs[0].setAttribute('name', `trip[destinations_attributes][${newId+1}][leaving_from]`);
-  // field_inputs[0].setAttribute('id', `trip_destinations_attributes_${newId+1}_leaving_from`);
-  // field_inputs[0].setAttribute('value', group_children[group_children.length-3].value);
-  // field_inputs[0].hidden = true;
-  // field_inputs[1].setAttribute('name', `trip[destinations_attributes][${newId+1}][arriving_to]`);
-  // field_inputs[1].setAttribute('id', `trip_destinations_attributes_${newId+1}_arriving_to`);
-  // field_inputs[2].setAttribute('name', `trip[destinations_attributes][${newId+1}][start_date]`);
-  // field_inputs[2].setAttribute('id', `trip_destinations_attributes_${newId+1}_start_date`);
-  // field_inputs[3].setAttribute('name', `trip[destinations_attributes][${newId+1}][end_date]`);
-  // field_inputs[3].setAttribute('id', `trip_destinations_attributes_${newId+1}_end_date`);
-  
-  // Make Sure Cloned Values Are Not Carried Forward
-  // group_children = group.querySelectorAll('input');
-  // group_children[group_children.length-3].value = "";
-  // group_children[group_children.length-2].value = "";
-  // group_children[group_children.length-1].value = "";
-  // old_fields.appendChild(fields);
-  // return group;
-  // let checkbox = document.createElement('input');
-  // checkbox.setAttribute('type', 'checkbox');
-  // div1.appendChild(checkbox);
 }
