@@ -7,8 +7,8 @@
 <div id="editBody">
 <div class="container editProfile">
 
-<%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
-  <div class="form_title editP"><%=@title%></div>
+  <%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
+    <div class="form_title editP"><%=@title%></div>
   <%= render "devise/shared/error_messages", resource: resource %>
 
     <div>
@@ -37,17 +37,17 @@
 
     <div class="form-group col-md-7">
       <%= f.label :country, "In which country do you live?", class: "form_label" %>
-      <%= f.select :country, options_for_select(@countries, selected=@user.country), {include_blank: @user.country},class: "form-control"%>
+      <%= f.select :country, options_for_select(@countries, @countries[@country_index]) %>
     </div>
     
     <div class="form-group col-md-7">
       <%= f.label :province, "In which province/state do you live?", class: "form_label" %>
-      <%= f.select :province, options_for_select(@territories, selected=@territory), {include_blank: @user.province},class: "form-control" %>
+      <%= f.select :province, options_for_select(@territories) %>
     </div>
 
     <div class="form-group col-md-7">
       <%= f.label :city, "In which city do you live?", class: "form_label" %>
-      <%= f.select :city, options_for_select(@cities, selected=@city), {include_blank: @user.city},class: "form-control" %>
+      <%= f.select :city, options_for_select(@cities) %>
     </div>
      
     <div>

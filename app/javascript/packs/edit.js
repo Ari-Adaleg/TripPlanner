@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     // The following 3 lines are the select tags of the form 
     var countries = document.querySelector('#user_country');
+    countries.classList.add("form-control");
     var territories = document.querySelector('#user_province');
+    territories.classList.add("form-control");
     var cities = document.querySelector('#user_city');
+    cities.classList.add("form-control");
     // The next 3 lines are used to get @user.province and @user.city from 
     // the edit.html.erb page. I put them in hidden tags at the top of the html page.
     var country = document.querySelector('#country'); 
