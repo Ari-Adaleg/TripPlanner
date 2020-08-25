@@ -27,6 +27,7 @@ class MealPreferencesController < ApplicationController
         end
     end
 
+private
     def meal_preference_params 
         params.require(:meal_preference).permit(:gluten_free, :vegetarian, 
           :vegan, :dairy_free, :low_sodium, :kosher, :halal)
