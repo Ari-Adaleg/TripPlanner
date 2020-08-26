@@ -3,14 +3,14 @@
 <%= image_tag "travel-2650303.jpg", class: "img-fluid" %>
 
 <div class="index">
-    <h1>My Trips</h1>
+    <h1 class="title">My Trips</h1>
     <div class="trips_list">
                 <p><%@trips.each do |trip|%></p>
                 <% a = 1 %>
         <div class="card padding">
             <div class="card-body d-flex flex-column">
                 <h5 class="card-title trip"><%=trip.name%></h5>
-                <h6 class="card-subtitle mb-2 text-muted">Added by <%=current_user.username%></h6>
+                <h6 class="card-subtitle mb-2 text-muted trip-subtitle">Added by <%=current_user.username%></h6>
                     <%@destinations.each do |destination|%>
                         <%if destination.trip_id == trip.id%>
                             <h6 id="title">Destination #<%= a %></h6>

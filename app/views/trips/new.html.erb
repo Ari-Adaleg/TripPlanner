@@ -6,7 +6,7 @@
 
 <%= image_tag "old_travel_photography-wallpaper-3840x2400", class: "img-fluid" %>
 
-<div class="container">
+<div class="newtrip-container">
 <h1 class="title">Plan Your Trip</h1>
 <div class="trip_form">
 <%= form_for @trip, :html => {class: "form-group"}, url: users_trips_path do |f| %>
@@ -14,7 +14,7 @@
             <%= f.label :name, "What's the title of your trip?", class: "form_label1" %>
             <%= f.text_field :name, placeholder: "ex. Canadian Roadtrip 2020", class: "form_input1", required: true %>
       </div>
-      <hr>
+      <hr class="newtrip-hr">
       <%= f.fields_for :destinations do |d| %>
       <div id="destination_group">
             <div id="destination_fields">
