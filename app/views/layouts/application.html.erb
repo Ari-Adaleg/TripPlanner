@@ -10,28 +10,29 @@
     <script src='https://maps.googleapis.com/maps/api/js?key=<%=ENV['google_api_key']%>'></script>
   </head>        
   <body>
-    <nav class="navbar navbar-lexpand-sm navbar-dark-bg-dark">
-    <li class="nav=item">
-    <%= link_to image_tag("trip_planner.png", :size => "260x180" ,  alt: "logo"),
-        root_path %>
+    <div id="navback" class="sticky-top">
+    <nav class="navbar navbar-lexpand-sm navbar-dark-bg-dark layout-top-nav">
+    <li class="nav-item nav-li">
+    <%= link_to image_tag("trip_planner.png", :width => "182" ,  alt: "logo",  id: "logo"),
+        root_url%>
         </li>
- <li class="nav-item ">
-         <a href="#" class="nav-link  navoption">About Us<a>
+ <li class="nav-item nav-li ">
+         <a href="#" class="nav-link nav-layout-opt navoption">About Us</a>
     </li>
-     <li class="nav-item">
-         <a href="#" class="nav-link navoption">FAQs<a>
+     <li class="nav-item nav-li">
+         <a href="#" class="nav-link nav-layout-opt navoption">FAQs</a>
     </li>
-     <li class="nav-item">
-         <a href="#" class="nav-link nav navoption">Contact Us<a>
+     <li class="nav-item nav-li">
+         <a href="#" class="nav-link nav-layout-opt navoption">Contact Us</a>
     </li>
       <%if current_user%>  
-       <li class="nav-item">
-       <%=link_to 'Add Trip', users_trip_destinations_path(current_user.trips.first)%>
-    </li>
+       <li class="nav-item nav-li">
+        <%=link_to 'Add Trip', new_users_trip_path, class: "nav-link nav-layout-opt navoption"%>
+      </li>
     
     
-      <li class="nav-item dropdown">
-        <a class="nav-link dropdown-toggle navoption" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+      <li class="nav-item nav-li dropdown">
+        <a class="nav-link nav-layout-opt dropdown-toggle navoption" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           Welcome <%= current_user.username%>
         </a>
 
@@ -41,21 +42,24 @@
           <%= link_to "Change Password", edit_user_password_path %>
          <div class="dropdown-divider"></div>
           <%= link_to "Meal Preference", new_users_meal_preferences_path%>
+          <div class="dropdown-divider"></div>
+          <%= link_to "My Trips", users_trips_path %>
         </div>
       </li>
-      <li class="nav-item navoption">      
-    <%= link_to 'Log Out', destroy_user_session_path, method: "delete" %> 
+      <li class="nav-item nav-li">      
+    <%= link_to 'Log Out', destroy_user_session_path, method: "delete", class: "nav-link nav-layout-opt navoption" %> 
     </li>         
   <%else%>
-  <li class="nav-item">
-    <%= link_to "Register", new_user_registration_path, id: "register" %>
+  <li class="nav-item nav-li">
+    <%= link_to "Register", new_user_registration_path, class: "nav-link nav-layout-opt navoption",id: "register" %>
     </li>
-    <li class="nav-item">
-    <%= link_to "Log In", new_user_session_path %>
+    <li class="nav-item nav-li">
+    <%= link_to "Log In", new_user_session_path, class: "nav-link nav-layout-opt navoption" %>
     </li>
   <%end%>
 
 </nav>
+</div>
 
 
     <%= yield %>

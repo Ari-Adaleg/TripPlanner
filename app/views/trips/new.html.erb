@@ -1,0 +1,51 @@
+<%= javascript_pack_tag 'destination' %>
+<%= stylesheet_link_tag 'trip'%>
+
+<%=hidden_field_tag 'latitude', @user_home[0] %>
+<%=hidden_field_tag 'longitude', @user_home[1] %>
+
+<%= image_tag "old_travel_photography-wallpaper-3840x2400.jpg", class: "img-fluid" %>
+
+<div class="newtrip-container">
+<h1 class="title">Plan Your Trip</h1>
+<div class="trip_form">
+<%= form_for @trip, :html => {class: "form-group"}, url: users_trips_path do |f| %>
+      <div class="field1">
+            <%= f.label :name, "What's the title of your trip?", class: "form_label1" %>
+            <%= f.text_field :name, placeholder: "ex. Canadian Roadtrip 2020", class: "form_input1", required: true %>
+      </div>
+      <hr class="newtrip-hr">
+      <%= f.fields_for :destinations do |d| %>
+      <div id="destination_group">
+            <div id="destination_fields">
+            <div class="field1">
+                  <%= d.label :leaving_from, "Leaving from: ", class: "form_label1"%>
+                  <%= d.text_field :leaving_from, value: current_user.city, class: "form_input1" %>
+            </div>
+            <div class="field1">
+                  <%= d.label :arriving_to, "Destination: ", class: "form_label1"%>
+                  <%= d.text_field :arriving_to, class: "form_input1" %>
+            </div>
+            <div class="field1">
+                  <%= d.label :start_date, "Start date: ", class: "form_label1"%>
+                  <%= d.date_field :start_date, class: "form_input1" %>
+            </div>
+            <div class="field1" id="new-space">
+                  <%= d.label :end_date, "End date: ", class: "form_label1"%>
+                  <%= d.date_field :end_date, class: "form_input1" %>
+            </div>
+            </div>
+      </div>
+      </div>
+      </div>
+      <div class="clickable">
+      <div class="new-stop">
+            <%=link_to "Add another stop", "", :onclick => "addFields(); return false", class: "btn btn-outline-secondary btn-lg new-stop" %><br>
+      </div>
+      <% end %>
+      <div class="next">
+      <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
+      </div>
+<% end %>
+
+<div id="map"></div>
