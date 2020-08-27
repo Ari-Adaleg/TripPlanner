@@ -19,6 +19,7 @@ class DestinationsController < ApplicationController
     end
 
     def create
+        p "yyyyyyyyyyyyyyyyyyyyyeeeeeeeeeeesssssssssssssssss"
         @destination = Destination.new(destination_params)
 
         if @destination.save
@@ -27,9 +28,10 @@ class DestinationsController < ApplicationController
             render :index
         end
     end
-end
 
 private
     def destination_params
         params.require(:destination).permit(:leaving_from, :arriving_to, :start_date, :end_date)
     end
+
+end
