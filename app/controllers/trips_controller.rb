@@ -23,7 +23,7 @@ class TripsController < ApplicationController
             p "....DONE!!!!!!!!! #{@trip.inspect}"
     
             if @trip.save
-                redirect_to users_trips_url
+                redirect_to  new_users_trip_restaurant_path
             else
                 render :new
             end
