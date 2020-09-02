@@ -1,12 +1,17 @@
-<%= javascript_pack_tag 'destination' %>
-
-<h1>DESTINATION</h1>
-<%= form_tag users_trip_destinations_path(current_user.trips.first) do %>
-
-      <%= label_tag :name, "Destination: "%>
-      <%= text_field_tag :name, params[:name] %>
-
-      <%= submit_tag "Submit", data: {disable_with: false}%>
-<% end %>
-
-<div style="height: 400px;" id="map"></div>
+<h1>
+<%= @trip.name %> </h1>
+<% @destinations.each do |d| %>
+<div> 
+      <%= d.arriving_to %>
+      <%= link_to "Add Restaurant", new_users_trip_destination_restaurant_path(@trip.id, d.id)%> 
+</div>
+    <% if d.eateries.empty? %>
+    <p> no restaurant selected </p>
+    <% else %>
+      <% d.eateries.each do |r| %>
+      <div>
+      <%= r.name %>
+      </div>
+   <%end%>
+   <%end%>
+      <% end %>

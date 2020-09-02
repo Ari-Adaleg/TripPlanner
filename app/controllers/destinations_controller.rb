@@ -8,8 +8,8 @@ class DestinationsController < ApplicationController
     end
 
     def index
-        @trip = Trip.new
-        @destination = Destination.new
+        @trip = Trip.find(params[:trip_id])
+        @destinations = @trip.destinations
     end
 
     def show

@@ -1,2 +1,8 @@
-<h1>Restaurants#new</h1>
-<p>Find me in app/views/restaurants/new.html.erb</p>
+<h1>Choose Your Favourite Restaurant</h1>
+
+<%= form_for @restaurant, url: users_trip_destination_restaurants_path(@trip.id, @destination.id) do |f| %>
+          <%= f.label :name, "Restaurant Name" %>
+          <%= f.text_field :name, required: true %>
+  
+    <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
+<% end %>
