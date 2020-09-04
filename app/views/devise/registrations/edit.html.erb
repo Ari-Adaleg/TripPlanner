@@ -1,15 +1,19 @@
 <%= stylesheet_link_tag 'editForm'%>
-<%= javascript_pack_tag 'form' %>
-<div class="container-fluid">
+<%= javascript_pack_tag 'edit' %>
+<%=hidden_field_tag 'territory', @user.province %>
+<%=hidden_field_tag 'city', @user.city %>
 
-<%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
-  <div class="form_title"><%=@title%></div>
+<div id="editBody">
+<div class="container editProfile">
+
+  <%= form_for @user, :html => {class: "form-group"}, url: user_registration_path do |f| %>
+    <div class="form_title editP"><%=@title%></div>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-    <div class="image">
-      <%= image_tag "https://api.adorable.io/avatars/95/#{@user.email}.png" %> 
+    <div>
+      <%= image_tag "https://api.adorable.io/avatars/95/#{@user.email}.png", id: "avatar" %> 
     </div>
-  <div class="col">
+  <div class="col editProfileCol">
     <div class="form-group col-md-7">
       <%= f.label :first_name, "First Name:"%>
       <%= f.text_field :first_name, class: "form-control" %>
@@ -32,25 +36,26 @@
 
     <div class="form-group col-md-7">
       <%= f.label :country, "In which country do you live?", class: "form_label" %>
-      <%= f.select :country, options_for_select(@countries, selected=@country), {include_blank: "Choose your country"},class: "form-control"%>
+      <%= f.select :country, options_for_select(@countries, @countries[@country_index]) %>
     </div>
     
     <div class="form-group col-md-7">
       <%= f.label :province, "In which province/state do you live?", class: "form_label" %>
-      <%= f.select :province, options_for_select(@territories, selected=@territory), {include_blank: "Choose your province/state:"},class: "form-control" %>
+      <%= f.select :province, options_for_select(@territories) %>
     </div>
 
     <div class="form-group col-md-7">
       <%= f.label :city, "In which city do you live?", class: "form_label" %>
-      <%= f.select :city, options_for_select(@cities), {include_blank: "Choose your city:"},class: "form-control" %>
+      <%= f.select :city, options_for_select(@cities) %>
     </div>
      
-    <div class="btn">
-      <button type="submit" >Update</button>
+    <div>
+    <%= f.submit class: "btn btn-primary profileUpdateButton" %>
     </div>
     </div>
     </div>  
 
   <% end %>
 </div>  
+</div>
 </div>

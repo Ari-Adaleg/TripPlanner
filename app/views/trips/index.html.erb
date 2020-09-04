@@ -1,0 +1,46 @@
+<%= stylesheet_link_tag 'trip'%>
+
+<%= image_tag "travel-2650303.jpg", class: "img-fluid" %>
+
+<div class="index">
+    <h1 class="title">My Trips</h1>
+    <div class="trips_list">
+                <p><%@trips.each do |trip|%></p>
+                <% a = 1 %>
+        <div class="card padding">
+            <div class="card-body d-flex flex-column">
+                <h5 class="card-title trip"><%=trip.name%></h5>
+                <h6 class="card-subtitle mb-2 text-muted trip-subtitle">Added by <%=current_user.username%></h6>
+                    <%@destinations.each do |destination|%>
+                        <%if destination.trip_id == trip.id%>
+                            <h6 id="title">Destination #<%= a %></h6>
+                            <div class="card-text">
+                                    <div class="row-space">
+                                        <h6 class="to-from-1">From:</h6>
+                                        <p class="to-from-2"><%=destination.leaving_from%></p>
+                                    </div>
+                                    <div>
+                                        <h6 class="to-from-1">To:</h6>
+                                        <p class="to-from-2"><%=destination.arriving_to%></p>
+                                    </div>
+                                <div class="row">
+                                    <div class="row-space">
+                                        <h6 class="to-from-1">Start Date:</h6>
+                                        <p class="to-from-2"><%=destination.start_date%></p>
+                                    </div>
+                                    <div>
+                                        <h6 class="to-from-1">End Date:</h6>
+                                        <p class="to-from-2"><%=destination.end_date%></p>
+                                    </div>
+                                </div>
+                                <% a += 1 %>
+                            </div>
+                        <%end%>
+                    <%end%>
+                            <hr>
+                <%= link_to "Edit Trip", edit_users_trip_path(trip.id), class: "btn btn-primary mt-auto"%>
+            </div>
+        </div>
+                <%end%>
+    </div>
+</div>
