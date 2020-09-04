@@ -16,3 +16,11 @@ Rails.application.routes.draw do
   get '/users/get_territories/:country', to: 'welcome#get_territories' 
   get '/users/get_cities/:country/:territory', to: 'welcome#get_cities' 
 end
+
+
+######################################################################################################
+# navbar and footer links
+
+Rails.application.routes.draw do
+  get "/pages/:page" => "pages#show"
+end
