@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resource :meal_preferences, shallow: true 
     resources :trips do
       resources :destinations do
-      resources :restaurants, :lodgings
+      resources :restaurants, :lodgings, :attractions
       end
     end 
   end
