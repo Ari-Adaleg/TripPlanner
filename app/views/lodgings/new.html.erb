@@ -1,0 +1,8 @@
+<h1>Hotel Choice</h1>
+
+<%= form_for @hotel, url: users_trip_destination_lodgings_path(@trip.id, @destination.id) do |f| %>
+          <%= f.label :name, "Hotel Name" %>
+          <%= f.text_field :name, required: true %>
+  
+    <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
+<% end %>

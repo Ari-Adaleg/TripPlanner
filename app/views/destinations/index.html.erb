@@ -1,12 +1,45 @@
-<%= javascript_pack_tag 'destination' %>
-
-<h1>DESTINATION</h1>
-<%= form_tag users_trip_destinations_path(current_user.trips.first) do %>
-
-      <%= label_tag :name, "Destination: "%>
-      <%= text_field_tag :name, params[:name] %>
-
-      <%= submit_tag "Submit", data: {disable_with: false}%>
+<h1><%= @trip.name %> </h1>
+<% @destinations.each do |d| %>
+      <div> 
+            <%= d.arriving_to %>
+            <%= link_to "Add Restaurant", new_users_trip_destination_restaurant_path(@trip.id, d.id)%> 
+      </div>
+      <% if d.eateries.empty? %>
+            <p> no restaurant selected </p>
+      <% else %>
+            <% d.eateries.each do |r| %>
+            <div>
+                  <%= r.name %>
+            </div>
+            <%end%>
+      <%end%>
+      <div> 
+            <%= link_to "Add Hotel", new_users_trip_destination_lodging_path(@trip.id, d.id)%> 
+      </div>
+      <% if d.lodgings.empty? %>
+            <p> no hotel selected </p>
+      <% else %>
+            <% d.lodgings.each do |l| %>
+            <div>
+                  <%= l.name %>
+            </div>
+            <%end%>
+      <%end%>
+      <div> 
+            <%= link_to "Add Attraction", new_users_trip_destination_attraction_path(@trip.id, d.id)%> 
+      </div>
+      <% if d.attractions.empty? %>
+            <p> no attraction selected </p>
+      <% else %>
+            <% d.attractions.each do |a| %>
+            <div>
+                  <div>
+                        <%= a.name %>
+                  </div>
+                  <div>
+                        <%= a.date %>
+                  </div>
+            </div>
+            <%end%>
+      <%end%>
 <% end %>
-
-<div style="height: 400px;" id="map"></div>

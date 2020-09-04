@@ -1,0 +1,8 @@
+<h1>Attractions</h1>
+
+<%= form_for @attraction, url: users_trip_destination_attractions_path(@trip.id, @destination.id) do |f| %>
+          <%= f.label :name, "Attraction Place" %>
+          <%= f.text_field :name, required: true %>
+          <%= f.date_field :date, required: true %>
+    <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
+<% end %>
