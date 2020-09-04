@@ -2,6 +2,7 @@
 <html>
   <head>
     <title>TripPlanner</title>
+    <script src="https://kit.fontawesome.com/4b2725782b.js" crossorigin="anonymous"></script>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -16,14 +17,15 @@
     <%= link_to image_tag("trip_planner.png", :width => "182" ,  alt: "logo",  id: "logo"),
         root_url%>
         </li>
- <li class="nav-item nav-li ">
-         <a href="#" class="nav-link nav-layout-opt navoption">About Us</a>
+ <li class="nav-item nav-li">
+         <a href='/pages/about' class="nav-link nav-layout-opt  navoption">About us<a>
     </li>
      <li class="nav-item nav-li">
          <a href="#" class="nav-link nav-layout-opt navoption">FAQs</a>
     </li>
+
      <li class="nav-item nav-li">
-         <a href="#" class="nav-link nav-layout-opt navoption">Contact Us</a>
+         <a href='/pages/contact' class="nav-link  nav-layout-opt navoption">Contact Us<a>
     </li>
       <%if current_user%>  
        <li class="nav-item nav-li">
@@ -64,6 +66,65 @@
 
     <%= yield %>
   </body>
+
+<%# footer %>
+<div class="footer">
+  <div class="footer-content">
+
+<%# trying to get logo to show up %>
+<div class="footer-section logo">
+  <%= link_to image_tag("trip_planner.png", :size => "430x280"),
+        root_path %>
+</div>
+
+    <div class="footer-section about">
+       <h1 class="logo-text"><span>Trip</span>Planner</h1>
+       <p>
+       Trip Planner is ....
+       </p>
+    <div class="contact">
+    <span><i class="fas fa-phone"></i> &nbsp; (647)271-1460</span>
+    <span><i class="fas fa-envelope"></i> &nbsp; info@adalegit.com</span>
+  </div>
+  <div class="socials">
+  <h1>Connect with Us</h1>
+    <a href="#"><i class="fab fa-facebook"></i></a>
+    <a href="#"><i class="fab fa-instagram"></i></a>
+    <a href="#"><i class="fab fa-twitter"></i></a>
+    <a href="#"><i class="fab fa-youtube"></i></a>
+    <a href="#"><i class="fab fa-linkedin"></i></a>
+  </div>
+</div>
+
+    <div class="footer-section links">
+      <h2>Quick Links</h2>
+      <br>
+      <ul>
+        <a href='/pages/about'><li>About Us</li>
+        </a>
+        <a href='/pages/privacy'><li>Privacy Policy</li>
+        </a>
+        <a href='/pages/terms'><li>Terms And Conditions</li>
+        </a>
+        <a href='/pages/cookies'><li>Use Of Cookies</li>
+        </a>
+        <a href='/pages/map'><li>Site Map</li>
+        </a>
+        </a>
+        <a href='/pages/contact'><li>Contact us</li>
+        </a>
+      </ul>
+    </div>
+
+      </form>
+  </div>
+
+  <div class="footer-bottom">
+   &copy; tripplanner.com | Designed by: Adaleg IT Class 2020
+
+<%# footer %>
+
+
 </html>
 
 

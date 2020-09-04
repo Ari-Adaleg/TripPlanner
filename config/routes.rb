@@ -15,4 +15,6 @@ Rails.application.routes.draw do
     get '/users/get_coordinates/:name', to: 'destinations#get_coordinates' 
   get '/users/get_territories/:country', to: 'welcome#get_territories' 
   get '/users/get_cities/:country/:territory', to: 'welcome#get_cities'
+  get "/pages/:page" => "pages#show"
 end
+
