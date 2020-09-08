@@ -89,3 +89,14 @@
     width: 300px;
     margin: auto;
 }
+
+.card-img-top {
+    object-fit: cover;
+    object-position: 10%;
+    height: 170px;
+    margin-bottom: 3%;
+}
+
+*, *::before, *::after {
+    box-sizing: unset;
+}
