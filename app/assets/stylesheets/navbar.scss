@@ -1,5 +1,5 @@
 #navback {
-   background-color: lightgrey;
+   background-color: rgb(230, 230, 230);
 }
 .active {
    color: blue;
@@ -10,12 +10,14 @@
 }
 
 .navbar-lexpand-sm.navbar-dark-bg-dark.layout-top-nav {
-   width: 75%;
+   width: 70%;
    display: flex;
    justify-content: space-between;
    flex-wrap: nowrap;
    margin: 0 auto;
    align-content: stretch;
+   height: 100px;
+   // padding-bottom: 0px;
 }
 
 .nav-item.nav-li {
@@ -32,7 +34,7 @@
    padding-top: 30.6565px;
    padding-bottom: 30.6565px;
     font-size: 1.25em;
-    color: navy;
+    color: #1d3e6e;
     border-color: rgb(123, 121, 121);
     border: 1000px;
 }
