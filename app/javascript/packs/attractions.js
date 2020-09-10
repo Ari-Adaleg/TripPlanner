@@ -46,7 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
         let rightDiv = document.querySelector('.right-div');
         let div = document.createElement('div');
         div.className = 'content';
-        div.innerHTML = `<h5>${spot.name}</h5> <p>Address: ${spot.vicinity}</p><p>Rating: ${spot.rating}/5</p>`;
+        div.innerHTML = `<h5 class="dest-title">${spot.name}</h5> <p class="dest-address">Address: ${spot.vicinity}</p><p>Rating: ${spot.rating}/5</p>`;
         rightDiv.appendChild(div);
         x.setAttribute("type", "button");
         x.setAttribute("class", "select");

@@ -4,10 +4,12 @@
 <%=hidden_field_tag 'latitude', @lat %>
 <%=hidden_field_tag 'longitude', @lng %>
 
-<h1>Select Your Favourite Restaurant</h1>
+<%= image_tag "dan-gold-E6HjQaB7UEA-unsplash", class: "img-fluid" %>
+
+<h1 class="h1-title">Select Your Favourite Restaurant</h1>
 <div class="container">
 <div class="left-div">
-<h1 class="name_dest"><%= @destination.arriving_to%></h1>
+<h3 class="name_dest">Destination city: <%= @destination.arriving_to%></h3>
 
 <%
 =begin%>

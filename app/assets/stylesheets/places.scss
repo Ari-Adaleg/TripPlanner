@@ -20,5 +20,28 @@
 }
 
 #rest_map {
-    height: 472px;
+    height: 414px;
+}
+
+.h1-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.dest-title {
+    font-weight: 200;
+    // margin-bottom: 0%;
+}
+
+.dest-address {
+    font-weight: 500;
+}
+
+.content {
+    width: 90%;
+    padding: 5%;
+    border-bottom: black solid 2px;
+    border-left: black solid 2px;
 }

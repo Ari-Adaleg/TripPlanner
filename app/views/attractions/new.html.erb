@@ -4,10 +4,12 @@
 <%=hidden_field_tag 'latitude', @lat %>
 <%=hidden_field_tag 'longitude', @lng %>
 
-<h1>Attractions</h1>
+<%= image_tag "sebastian-sammer-ZAQR0bIijmk-unsplash", class: "img-fluid" %>
+
+<h1 class="h1-title">Where are you touring today?</h1>
 <div class="container">
 <div class="left-div">
-<h1 class="name_dest"><%= @destination.arriving_to%></h1>
+<h1 class="name_dest">Destination city: <%= @destination.arriving_to%></h1>
 
 <%
 =begin%>
