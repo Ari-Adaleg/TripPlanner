@@ -1,8 +1,29 @@
-<h1>Hotel Choice</h1>
+<%= javascript_pack_tag 'lodging' %>
+<%= stylesheet_link_tag 'places'%>
 
-<%= form_for @hotel, url: users_trip_destination_lodgings_path(@trip.id, @destination.id) do |f| %>
+<%=hidden_field_tag 'latitude', @lat %>
+<%=hidden_field_tag 'longitude', @lng %>
+
+<%= image_tag "will-truettner-7ZZ_FmVelQY-unsplash", class: "img-fluid" %>
+
+<h1 class="h1-title">Select your prefered hotel</h1>
+<div class="container">
+<div class="left-div">
+<h1 class="name_dest">Destination city: <%= @destination.arriving_to%></h1>
+
+<%
+=begin%>
+ <%= form_for @hotel, url: users_trip_destination_lodgings_path(@trip.id, @destination.id) do |f| %>
           <%= f.label :name, "Hotel Name" %>
           <%= f.text_field :name, required: true %>
   
     <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
-<% end %>
+<% end %> 
+<%
+=end%>
+
+<div id="rest_map"></div>
+</div>
+<div class="right-div">
+</div>
+</div>
