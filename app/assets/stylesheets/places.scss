@@ -1,0 +1,47 @@
+.container {
+    width: 75%;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.left-div {
+    width: 130%;
+}
+
+.right-div {
+    height: 532px;
+    overflow: scroll;
+    width: 100%;
+}
+
+.restaurant {
+    border: black solid 1px;
+}
+
+#rest_map {
+    height: 414px;
+}
+
+.h1-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.dest-title {
+    font-weight: 200;
+    // margin-bottom: 0%;
+}
+
+.dest-address {
+    font-weight: 500;
+}
+
+.content-places {
+    width: 90%;
+    padding: 5%;
+    border-bottom: black solid 2px;
+    border-left: black solid 2px;
+}

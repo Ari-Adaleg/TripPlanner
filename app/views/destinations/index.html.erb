@@ -1,7 +1,14 @@
-<h1><%= @trip.name %> </h1>
+<%= image_tag "annie-spratt-qyAka7W5uMY-unsplash", class: "img-fluid" %>
+<%= stylesheet_link_tag 'index-dest'%>
+
+<h1 class="h1-title"><%= @trip.name %> </h1>
+<div class="container-ind">
+<div class="loop">
 <% @destinations.each do |d| %>
+<div class="s-dest">
+<div class="inner-s-dest">
       <div> 
-            <%= d.arriving_to %>
+            <h5><%= d.arriving_to %></h5>
             <%= link_to "Add Restaurant", new_users_trip_destination_restaurant_path(@trip.id, d.id)%> 
       </div>
       <% if d.eateries.empty? %>
@@ -42,4 +49,8 @@
             </div>
             <%end%>
       <%end%>
+      </div>
+            </div>
 <% end %>
+</div>
+</div>

@@ -1,8 +1,29 @@
-<h1>Attractions</h1>
+<%= javascript_pack_tag 'attractions' %>
+<%= stylesheet_link_tag 'places'%>
 
-<%= form_for @attraction, url: users_trip_destination_attractions_path(@trip.id, @destination.id) do |f| %>
+<%=hidden_field_tag 'latitude', @lat %>
+<%=hidden_field_tag 'longitude', @lng %>
+
+<%= image_tag "sebastian-sammer-ZAQR0bIijmk-unsplash", class: "img-fluid" %>
+
+<h1 class="h1-title">Where are you touring today?</h1>
+<div class="container">
+<div class="left-div">
+<h1 class="name_dest">Destination city: <%= @destination.arriving_to%></h1>
+
+<%
+=begin%>
+ <%= form_for @attraction, url: users_trip_destination_attractions_path(@trip.id, @destination.id) do |f| %>
           <%= f.label :name, "Attraction Place" %>
           <%= f.text_field :name, required: true %>
           <%= f.date_field :date, required: true %>
     <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
-<% end %>
+<% end %> 
+<%
+=end%>
+
+<div id="rest_map"></div>
+</div>
+<div class="right-div">
+</div>
+</div>

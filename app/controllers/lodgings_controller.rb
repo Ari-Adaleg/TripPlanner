@@ -8,6 +8,9 @@ class LodgingsController < ApplicationController
         @hotel = Lodging.new
         @trip = Trip.find(params[:trip_id])
         @destination = Destination.find(params[:destination_id])
+        @lat_long = Geocoder.search(@destination.arriving_to)
+        @lat = @lat_long.first.coordinates[0]
+        @lng = @lat_long.first.coordinates[1]
     end
     
     def create
