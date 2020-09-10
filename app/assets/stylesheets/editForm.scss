@@ -19,7 +19,7 @@ $white: #FFFFFF;
 .editProfile{
     background: $white;
     width: 60%;
-    height: 720px;
+    height: 930px;
     margin-top: 5%;
     margin-bottom: 5%;
     box-shadow: 2px 5px 20px rgba($gray, .5);
@@ -29,6 +29,11 @@ $white: #FFFFFF;
   margin: 8%;
   border-radius: 30%;
   color: green($color: #000000);
+}
+
+.labelProfile{
+  margin-bottom: -1.5rem;
+  display: inline-block;
 }
 
 .editProfileCol{
