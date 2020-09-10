@@ -1,39 +1,58 @@
-
-function newMap(x, y) {
-    map = new google.maps.Map(document.getElementById("map"), {
-      center: {lat: x, lng: y},
-      zoom: 8
-    });
-  }
-
-  function getNearbyRestaurants(lat, lng) {
-    fetch(`https://maps.googleapis.com/maps/api/place/nearbysearch/json?location=${lat},${lng}&radius=1500&type=restaurant&key=AIzaSyD6Gq4YMYy_misKKqujLLV7BOKQLWFAk0Y`)
-    .then(e=>e.json())
-    .then(x => {
-        console.log(x);
-    })
-  }
-
 document.addEventListener('DOMContentLoaded', () => {
-    var form = document.querySelector('form');
-    var location = document.querySelector('#name');
-    var map = document.querySelector('#map');
-    var lat, lng;
-    form.onsubmit = (event) => {
-        let name = location.value;
-        event.preventDefault();
-        console.log(location.value);
-        fetch(`/destination/get_coordinates/${name}`)
-        .then(e=>e.json())
-        .then(x => {
-            console.log(x[0].data.boundingbox[0]);
-            console.log(x[0].data.boundingbox[2]);
-            lat = parseFloat(x[0].data.boundingbox[0]);
-            lng = parseFloat(x[0].data.boundingbox[2]);
-            newMap(lat, lng);
-            getNearbyRestaurants(lat, lng);
-        })
+  let latitude = document.querySelector('#latitude').value;
+  let longitude = document.querySelector('#longitude').value;
+  
+  let markers = [];
 
-        location.value = "";
+  console.log(latitude);
+  console.log(longitude);
+
+  myLatLng = new google.maps.LatLng(parseFloat(latitude),parseFloat(longitude));
+
+  map = new google.maps.Map(document.getElementById('rest_map'), {
+    zoom: 8,
+    center: myLatLng,
+  });
+
+  const addMarker = (lat, lng) => {
+    if (!!lat && !!lng) {
+      markers.push(
+        new google.maps.Marker({
+          map: map,
+          position: new google.maps.LatLng(parseFloat(lat), parseFloat(lng)),
+        })
+      );
     }
-})
+  };
+
+  addMarker(latitude, longitude);
+
+  const request = {
+    location: myLatLng,
+    radius: '500',
+    type: ['restaurant']
+  };
+
+  let service = new google.maps.places.PlacesService(map);
+  service.nearbySearch(request, (results, status) => {
+    if (status === google.maps.places.PlacesServiceStatus.OK) {
+    //   for (let i = 0; i < results.length; i++) {
+    //     createMarker(results[i]);
+    //   }
+    //   map.setCenter(results[0].geometry.location);
+    console.log('---->>', results);
+
+    results.forEach(spot => {
+      let rightDiv = document.querySelector('.right-div');
+      let div = document.createElement('div');
+      div.className = 'restaurant';
+      div.innerHTML = `<h5>${spot.name}</h5> <p>Address: ${spot.vicinity}</p><p>Rating: ${spot.rating}/5</p>`;
+      rightDiv.appendChild(div);
+      var x = document.createElement("input");
+      x.setAttribute("type", "checkbox");
+      div.appendChild(x);
+    })
+    }
+  });
+
+});
