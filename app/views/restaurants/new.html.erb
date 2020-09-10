@@ -4,17 +4,21 @@
 <%=hidden_field_tag 'latitude', @lat %>
 <%=hidden_field_tag 'longitude', @lng %>
 
+<h1>Select Your Favourite Restaurant</h1>
 <div class="container">
 <div class="left-div">
-<h1>Choose Your Favourite Restaurant</h1>
 <h1 class="name_dest"><%= @destination.arriving_to%></h1>
 
-<%= form_for @restaurant, url: users_trip_destination_restaurants_path(@trip.id, @destination.id) do |f| %>
+<%
+=begin%>
+ <%= form_for @restaurant, url: users_trip_destination_restaurants_path(@trip.id, @destination.id) do |f| %>
           <%= f.label :name, "Restaurant Name" %>
           <%= f.text_field :name, required: true %>
   
     <%= f.submit "Submit", class: "btn btn-primary btn-lg next" %>
-<% end %>
+<% end %> 
+<%
+=end%>
 
 <div id="rest_map"></div>
 </div>

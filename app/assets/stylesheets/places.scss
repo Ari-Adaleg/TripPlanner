@@ -1,18 +1,24 @@
 .container {
+    width: 75%;
     display: flex;
     flex-direction: row;
+    justify-content: center;
 }
 
 .left-div {
-    float: left;
+    width: 130%;
 }
 
 .right-div {
-    float: right;
     height: 532px;
     overflow: scroll;
+    width: 100%;
 }
 
 .restaurant {
     border: black solid 1px;
+}
+
+#rest_map {
+    height: 472px;
 }

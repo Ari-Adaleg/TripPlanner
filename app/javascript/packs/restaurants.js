@@ -45,13 +45,22 @@ document.addEventListener('DOMContentLoaded', () => {
     results.forEach(spot => {
       let rightDiv = document.querySelector('.right-div');
       let div = document.createElement('div');
-      div.className = 'restaurant';
+      div.className = 'content';
       div.innerHTML = `<h5>${spot.name}</h5> <p>Address: ${spot.vicinity}</p><p>Rating: ${spot.rating}/5</p>`;
       rightDiv.appendChild(div);
       var x = document.createElement("input");
-      x.setAttribute("type", "checkbox");
+      x.setAttribute("type", "button");
+      x.setAttribute("class", "select");
+      // x.setAttribute("onclick", "form()");
+      x.value = "Select";
       div.appendChild(x);
-    })
+    });
+    // document.querySelectorAll(".select").addEventListener("click", myFunction);
+
+    // function form() {
+    //   document.getElementById("eatery_name").innerHTML = "YOU CLICKED ME!";
+    // }
+
     }
   });
 
