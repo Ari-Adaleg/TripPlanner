@@ -45,7 +45,7 @@ document.addEventListener('DOMContentLoaded', () => {
     results.forEach(spot => {
       let rightDiv = document.querySelector('.right-div');
       let div = document.createElement('div');
-      div.className = 'content';
+      div.className = 'content-places';
       div.innerHTML = `<h5 class="dest-title">${spot.name}</h5> <p class="dest-address">Address: ${spot.vicinity}</p><p>Rating: ${spot.rating}/5</p>`;
       rightDiv.appendChild(div);
       var x = document.createElement("input");

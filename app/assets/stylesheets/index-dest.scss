@@ -1,0 +1,20 @@
+.container-ind {
+    justify-content: center;
+    display: flex;
+}
+
+.h1-title {
+    text-transform: uppercase;
+    font-weight: 900;
+    text-align: center;
+    margin-bottom: 2%;
+}
+
+.s-dest {
+    display: flex;
+    flex-direction: row;
+}
+
+.inner-s-dest {
+    display: unset;
+}
